@@ -4,8 +4,8 @@ import br.com.nat.domain.entities.Fish;
 
 import java.util.List;
 
-//@ApplicationScoped                     // ao colocar essa anotação da erro
-    public interface FishRepository {
-    public List<Fish> getAllFishs();
-
+public interface FishRepository {
+     List<Fish> getAllFishs();
+     void insertFish();
+     Fish crateFish();
 }

@@ -1,9 +1,12 @@
 package br.com.nat.resources;
 
+import br.com.nat.aplication.commands.insertFishCommand;
 import br.com.nat.aplication.commands.GetFishCommand;
+import br.com.nat.domain.entities.Fish;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -15,20 +18,17 @@ public class FishResource {
 
     @Inject
     GetFishCommand getFishCommand;
+    @Inject
+    insertFishCommand addFishCommand;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public Response get() {
-        return Response.ok(getFishCommand.escecute()).build();
+        return Response.ok(getFishCommand.execute()).build();
     }
-
-
-
-
-
-//    @POST
-//    public void add(Fish fish) {
-//        addFishCommand.addFishPost();
-//
-//    }
+    @POST
+    public Fish add(Fish fish) {
+        addFishCommand.insertFishComand();
+        return fish;
+    }
 }

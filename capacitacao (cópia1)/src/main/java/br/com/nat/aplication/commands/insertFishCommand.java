@@ -1,18 +1,17 @@
 package br.com.nat.aplication.commands;
 
-import br.com.nat.domain.entities.Fish;
 import br.com.nat.domain.repositories.FishRepository;
+import com.oracle.svm.core.annotate.Inject;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import java.util.List;
 
 @ApplicationScoped
-public class GetFishCommand {;
+public class insertFishCommand {
     @Inject
     FishRepository fishRepository;
 
-    public List<Fish> execute(){
-        return fishRepository.getAllFishs();
+    public void insertFishComand(){
+        fishRepository.insertFish();
+
     }
 }
