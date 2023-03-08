@@ -6,6 +6,5 @@ import java.util.List;
 
 public interface FishRepository {
      List<Fish> getAllFishs();
-     void insertFish();
-     Fish crateFish();
+     Fish crateFish(Fish fish);
 }

@@ -19,21 +19,18 @@ public class FishMongoRepository implements FishRepository {
     }
 
     @Override
-    public Fish crateFish() {
-        Fish fish = new Fish();
-        fish.setName("Bacalhau");
-        fish.setSea(true);
-        return fish;
+    public Fish crateFish(Fish fish) {
+          getCollection().insertOne(fish);
+          return fish;
 
     }
-    @Override
-    public void insertFish() {
-        getCollection().insertOne(crateFish());
-    }
+
 
     @Override
     public List<Fish> getAllFishs() {
-        return getCollection().find().into(new ArrayList<>());
+        List<Fish> returnList = new ArrayList<>();
+        getCollection().find().into(returnList);
+        return returnList;
     }
 
     private MongoCollection<Fish> getCollection(){

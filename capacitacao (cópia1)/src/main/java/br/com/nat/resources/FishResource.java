@@ -1,6 +1,7 @@
 package br.com.nat.resources;
 
-import br.com.nat.aplication.commands.insertFishCommand;
+//import br.com.nat.aplication.commands.insertFishCommand;
+import br.com.nat.aplication.commands.CreateFishComand;
 import br.com.nat.aplication.commands.GetFishCommand;
 import br.com.nat.domain.entities.Fish;
 
@@ -18,8 +19,9 @@ public class FishResource {
 
     @Inject
     GetFishCommand getFishCommand;
+
     @Inject
-    insertFishCommand addFishCommand;
+    CreateFishComand createFishComand;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -28,7 +30,7 @@ public class FishResource {
     }
     @POST
     public Fish add(Fish fish) {
-        addFishCommand.insertFishComand();
-        return fish;
+        return createFishComand.criateFish(fish);
+
     }
 }
