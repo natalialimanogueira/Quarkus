@@ -30,7 +30,7 @@ public class FishResource {
     }
     @POST
     public Fish add(Fish fish) {
-        return createFishComand.criateFish(fish);
+        return createFishComand.execute(fish);
 
     }
 }

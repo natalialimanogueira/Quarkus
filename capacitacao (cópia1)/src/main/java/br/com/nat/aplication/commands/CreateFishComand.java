@@ -11,7 +11,7 @@ public class CreateFishComand {
     @Inject
     FishRepository fishRepository;
 
-    public Fish criateFish(Fish fish){
+    public Fish execute(Fish fish){
         return fishRepository.crateFish(fish);
 
 
